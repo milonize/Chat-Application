@@ -1,0 +1,25 @@
+{
+  "name": "chat-application",
+  "version": "1.0.0",
+  "description": "Node js chat application by using express, websocket or others stuffs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=development nodemon app.js",
+    "production": "cross-env NODE_ENV=production node app.js"
+  },
+  "author": "Milonize",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "http-errors": "^2.0.0",
+    "mongoose": "^8.3.4",
+    "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}
