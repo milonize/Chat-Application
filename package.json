@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development nodemon app.js",
-    "production": "cross-env NODE_ENV=production node app.js"
+    "start": "NODE_ENV=development nodemon app.js",
+    "production": "NODE_ENV=production node app.js"
   },
   "author": "Milonize",
   "license": "ISC",
@@ -19,7 +19,13 @@
     "mongoose": "^8.3.4",
     "nodemon": "^3.1.0"
   },
-  "devDependencies": {
-    "cross-env": "^7.0.3"
-  }
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milonize/Chat-Application.git"
+  },
+  "bugs": {
+    "url": "https://github.com/milonize/Chat-Application/issues"
+  },
+  "homepage": "https://github.com/milonize/Chat-Application#readme"
 }

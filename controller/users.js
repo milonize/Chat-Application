@@ -1,7 +1,5 @@
 function getUsersPage(req,res,next){
-    res.render("users",{
-        tittle:'Users - Chat',
-    })
+    res.render("users")
 }
 
 module.exports={
