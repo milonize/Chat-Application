@@ -31,6 +31,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_URL)
 })
 .catch(err=>{
     console.log(err)
+
 })
 
 
@@ -40,7 +41,7 @@ extended:true
 }))
 
 app.post('/post',upload.single('file'),function(req,res){
-    console.log('file uploaded succesfully')
+    console.log('file uploaded successful')
     res.send(req.file)
 })
 
@@ -61,5 +62,5 @@ app.use(pageNotFound);
 app.use(errorHandler);
 
 app.listen(process.env.PORT,()=>{
-    console.log('application runing on port'+process.env.PORT)
+    console.log('application running on port '+process.env.PORT)
 })
