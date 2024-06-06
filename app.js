@@ -9,21 +9,8 @@ const loginRouter=require('./router/loginRouter')
 const usersRouter=require('./router/usersRouter')
 const inboxRouter=require('./router/inboxRouter')
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/uploads/')
-    },
-    filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-      cb(null, uniqueSuffix + '-' + file.originalname)
-    }
-  })
-  
-  const upload = multer({ storage: storage })
-
-        const app=express()
-
-        dotenv.config()
+         const app=express()
+         dotenv.config()
 
 mongoose.connect(process.env.MONGO_CONNECTION_URL)
 .then(()=>{
@@ -40,15 +27,11 @@ app.use(express.urlencoded({
 extended:true
 }))
 
-app.post('/post',upload.single('file'),function(req,res){
-    console.log('file uploaded successful')
-    res.send(req.file)
-})
+
 
 app.use('/',loginRouter)
 app.use('/users',usersRouter)
 app.use('/inbox',inboxRouter)
-
 
 
 

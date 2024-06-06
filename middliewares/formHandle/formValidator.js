@@ -49,6 +49,8 @@ const addUserFormValidator=[
     .trim()
 ]
 
+
+
 const formValidatorErrors=function(req,res,next){
     const errors= validationResult(req);
     const mappedErros=errors.mapped()
@@ -57,10 +59,13 @@ const formValidatorErrors=function(req,res,next){
     }else{
         if(req.files.length>0){
             const {filename}=req.files[0];
-            unlink(path.join(__dirname,`/../public/uploads/images/${filename}`)),
-            (err)=>{
-                if(err)console.log(err);
-            }
+            unlink(
+                path.join(__dirname,`/../public/uploads/images/${filename}`),
+                (err)=>{
+                    if(err)console.log(err);
+                }
+            );
+          
         }
 
         res.status(500).json({

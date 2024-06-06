@@ -7,6 +7,7 @@ const { addUserFormValidator, formValidatorErrors } = require('../middliewares/f
 const router = express.Router()
 
 router.get("/",HtmlResponse('Users'),getUsersPage)
+
 router.post("/create", imagesUpload,addUserFormValidator,formValidatorErrors,addUser)
 
 module.exports=router;

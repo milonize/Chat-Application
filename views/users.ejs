@@ -41,7 +41,12 @@
           <h2>Create New User</h2>
         </div>
         <div class="modal-body">
-          <form id="add-user-form" enctype="multipart/form-data">
+          <form 
+          id="add-user-form" 
+          method="post"
+          action="/users/create"
+          enctype="multipart/form-data"
+          >
             <input type="text" placeholder="enter name" name="name" />
             <p class="error show">This is error</p>
             <input type="text" placeholder="enter email" name="email" />
@@ -59,17 +64,19 @@
     </div>
 
     <script>
-const thisForm= document.getElementById('add-user-form');
+const thisForm= document.querySelector('#add-user-form');
 
 thisForm.onsubmit= async function(e){
   e.preventDefault();
 
   const formData = new FormData(thisForm);
-const response = await fetch('/users/create',{
+
+let response = await fetch('/users/create',{
   method:'POST',
-  body:formData
-})
+  body:formData,
+});
 let result=await response.json();
+
 if(result.errors){
   console.log('have some error in this code')
 }else{
